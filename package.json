@@ -1,0 +1,29 @@
+{
+  "name": "tv-maze",
+  "version": "1.0.0",
+  "description": "Cliente para la API de TVMaze",
+  "main": "index.js",
+  "devDependencies": {
+    "standard": "^10.0.2",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.3"
+  },
+  "scripts": {
+    "test": "tape test/*-test.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omiguelperez/tv-maze.git"
+  },
+  "keywords": [
+    "tv-maze",
+    "tv",
+    "maze"
+  ],
+  "author": "Oscar Pérez <mr.omiguelperez@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/omiguelperez/tv-maze/issues"
+  },
+  "homepage": "https://github.com/omiguelperez/tv-maze#readme"
+}
