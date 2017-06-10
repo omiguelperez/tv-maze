@@ -9,7 +9,8 @@
     "tape": "^4.6.3"
   },
   "scripts": {
-    "test": "tape test/*-test.js | tap-spec"
+    "lint": "standard",
+    "test": "npm run lint && tape test/*-test.js | tap-spec"
   },
   "repository": {
     "type": "git",
