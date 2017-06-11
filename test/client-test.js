@@ -52,3 +52,35 @@ test('should search shows', function (t) {
     t.end()
   })
 })
+
+test('should fail with unknown endpoint', function (t) {
+  let client = tvmaze.createClient({ endpoint: endpoint })
+
+  nock(endpoint)
+    .get('/foo')
+    .reply(404)
+
+  client._request('/foo', 'GET', null, function (err, shows) {
+    t.ok(err, 'request failed')
+    t.end()
+  })
+})
+
+test('should fail if not query is passed', function (t) {
+  let client = tvmaze.createClient({ endpoint: endpoint })
+
+  nock(endpoint)
+    .get('/search/shows')
+    .reply(400, {
+      code: 0,
+      message: 'Missing required parameter: q',
+      name: 'Bad Request',
+      status: 400
+    })
+
+  client._request('/search/shows', 'GET', null, function (err, shows) {
+    t.ok(err, 'bad request error')
+    t.notOk(shows, 'reply should be null')
+    t.end()
+  })
+})
