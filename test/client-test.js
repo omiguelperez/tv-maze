@@ -46,9 +46,28 @@ test('should search shows', function (t) {
     .reply(200, [{ name: 'Silicon Valley' }])
 
   client.search('silicon', function (err, shows) {
-    t.error(err, 'should not be an erro')
+    t.error(err, 'should not be an error')
     t.ok(Array.isArray(shows), 'should be an array')
     t.equals(shows[0].name, 'Silicon Valley', 'should retrieve a show name')
+    t.end()
+  })
+})
+
+test('should search show by id', function (t) {
+  let client = tvmaze.createClient({ endpoint: endpoint })
+  let id = 1
+
+  t.ok(client.findById, 'should exist')
+  t.equals(typeof client.findById, 'function', 'should be a function')
+
+  nock(endpoint)
+    .get('/shows/' + id)
+    .reply(200, { name: 'Under the Dome' })
+
+  client.findById(id, function (err, show) {
+    t.error(err, 'should not be error')
+    t.equals(typeof show, 'object', 'should be an object')
+    t.equals(show.name, 'Under the Dome', 'should retrieve a show name')
     t.end()
   })
 })
