@@ -16,4 +16,8 @@ client.shows(function (err, shows) {
 client.search('under', function (err, shows) {
   // do something with shows
 })
+
+client.show(324, function (err, show) {
+  // do something with show
+})
 ```

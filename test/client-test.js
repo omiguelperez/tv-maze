@@ -57,14 +57,14 @@ test('should search show by id', function (t) {
   let client = tvmaze.createClient({ endpoint: endpoint })
   let id = 1
 
-  t.ok(client.findById, 'should exist')
-  t.equals(typeof client.findById, 'function', 'should be a function')
+  t.ok(client.show, 'should exist')
+  t.equals(typeof client.show, 'function', 'should be a function')
 
   nock(endpoint)
     .get('/shows/' + id)
     .reply(200, { name: 'Under the Dome' })
 
-  client.findById(id, function (err, show) {
+  client.show(id, function (err, show) {
     t.error(err, 'should not be error')
     t.equals(typeof show, 'object', 'should be an object')
     t.equals(show.name, 'Under the Dome', 'should retrieve a show name')
