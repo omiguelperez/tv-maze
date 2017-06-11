@@ -4,6 +4,7 @@
   "description": "Cliente para la API de TVMaze",
   "main": "index.js",
   "devDependencies": {
+    "nock": "^9.0.13",
     "standard": "^10.0.2",
     "tap-spec": "^4.1.1",
     "tape": "^4.6.3"
@@ -26,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/omiguelperez/tv-maze/issues"
   },
-  "homepage": "https://github.com/omiguelperez/tv-maze#readme"
+  "homepage": "https://github.com/omiguelperez/tv-maze#readme",
+  "dependencies": {
+    "client-request": "^2.0.0"
+  }
 }
